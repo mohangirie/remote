@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title> Employee Details</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+<style>
+    td,th{
+        height: 40px;
+        width: 100px;
+        font-size: 20px;
+        text-align: center;
+    }
+</style>
+<div class="container">
+    <div class="row">
+            <h1>Employee Details</h1>
+            {% if edata %}
+            <center>
+                <table border="2">
+                    <thead>
+                    <tr>
+                        <th>EmployeeNo</th>
+                        <th>FirstName</th>
+                        <th>LastName</th>
+                        <th>Salary</th>
+                        <th>Location:</th>
+                        <th>Company:</th>
+                        <th>Position:</th>
+                        <th>Mobile:</th>
+                        <th>Email:</th>
+                    </tr>
+                    </thead>
+                     {% for i in edata %}
+                         <tbody>
+                         <tr>
+                             <td>{{ i.empno }}</td>
+                             <td>{{ i.firstname }}</td>
+                             <td>{{ i.lastname }}</td>
+                             <td>{{ i.salary }}</td>
+                             <td>{{ i.location }}</td>
+                             <td>{{ i.company }}</td>
+                             <td>{{ i.position }}</td>
+                             <td>{{ i.mobile }}</td>
+                             <td>{{ i.email }}</td>
+                        </tr>
+                    </tbody>
+                    {% endfor %}
+                    </table>
+                    </center>
+            {% else %}
+                <h1>No Data Found</h1>
+            {% endif %}
+    </div>
+</div>
+<center><h2><a href="/">Go to home page</a></h2></center>
+</body>
+</html>
